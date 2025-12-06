@@ -1,0 +1,28 @@
+version = 1
+
+[options]
+activate.mode = "run"
+
+[install]
+ncps.pkg-path = "ncps"
+dbmate.pkg-path = "dbmate"
+coreutils.pkg-path = "coreutils"
+
+[hook]
+on-activate = '''
+mkdir -p $FLOX_ENV_CACHE/ncps/db
+mkdir -p $FLOX_ENV_CACHE/ncps/storage
+
+ncps_dir=$(dirname "$(dirname "$(readlink -f "$(type -p ncps)")")")
+dbmate --migrations-dir=$ncps_dir/share/ncps/db/migrations --url=sqlite:$FLOX_ENV_CACHE/ncps/db/db.sqlite migrate up
+'''
+
+[services]
+ncps.command = '''
+ncps serve \
+	--cache-hostname=ncps \
+	--cache-data-path=$FLOX_ENV_CACHE/ncps/storage \
+	--cache-database-url=sqlite:$FLOX_ENV_CACHE/ncps/db/db.sqlite \
+	--upstream-cache=https://cache.nixos.org \
+	--upstream-public-key=cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY=
+'''

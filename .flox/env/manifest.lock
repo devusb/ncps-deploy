@@ -1,0 +1,386 @@
+{
+  "lockfile-version": 1,
+  "manifest": {
+    "version": 1,
+    "install": {
+      "coreutils": {
+        "pkg-path": "coreutils"
+      },
+      "dbmate": {
+        "pkg-path": "dbmate"
+      },
+      "ncps": {
+        "pkg-path": "ncps"
+      }
+    },
+    "hook": {
+      "on-activate": "mkdir -p $FLOX_ENV_CACHE/ncps/db\nmkdir -p $FLOX_ENV_CACHE/ncps/storage\n\nncps_dir=$(dirname \"$(dirname \"$(readlink -f \"$(type -p ncps)\")\")\")\ndbmate --migrations-dir=$ncps_dir/share/ncps/db/migrations --url=sqlite:$FLOX_ENV_CACHE/ncps/db/db.sqlite migrate up\n"
+    },
+    "options": {
+      "activate": {
+        "mode": "run"
+      }
+    },
+    "services": {
+      "ncps": {
+        "command": "ncps serve \\\n\t--cache-hostname=ncps \\\n\t--cache-data-path=$FLOX_ENV_CACHE/ncps/storage \\\n\t--cache-database-url=sqlite:$FLOX_ENV_CACHE/ncps/db/db.sqlite \\\n\t--upstream-cache=https://cache.nixos.org \\\n\t--upstream-public-key=cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY=\n"
+      }
+    }
+  },
+  "packages": [
+    {
+      "attr_path": "coreutils",
+      "broken": false,
+      "derivation": "/nix/store/6nazbrjjjylx36wscgc1zmy1p303fzla-coreutils-9.8.drv",
+      "description": "GNU Core Utilities",
+      "install_id": "coreutils",
+      "license": "GPL-3.0-or-later",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=418468ac9527e799809c900eda37cbff999199b6",
+      "name": "coreutils-9.8",
+      "pname": "coreutils",
+      "rev": "418468ac9527e799809c900eda37cbff999199b6",
+      "rev_count": 905402,
+      "rev_date": "2025-12-02T09:27:49Z",
+      "scrape_date": "2025-12-04T02:53:40.903749Z",
+      "stabilities": [
+        "unstable"
+      ],
+      "unfree": false,
+      "version": "9.8",
+      "outputs_to_install": [
+        "out"
+      ],
+      "outputs": {
+        "info": "/nix/store/nb4svndwaykkdinz6b2zjpknwdn0gc6s-coreutils-9.8-info",
+        "out": "/nix/store/1swaqmkr1329q50ky497sps80p16fn95-coreutils-9.8"
+      },
+      "system": "aarch64-darwin",
+      "group": "toplevel",
+      "priority": 5
+    },
+    {
+      "attr_path": "coreutils",
+      "broken": false,
+      "derivation": "/nix/store/jfna48p7m098r0wcgadq16p9vr8v4amw-coreutils-9.8.drv",
+      "description": "GNU Core Utilities",
+      "install_id": "coreutils",
+      "license": "GPL-3.0-or-later",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=418468ac9527e799809c900eda37cbff999199b6",
+      "name": "coreutils-9.8",
+      "pname": "coreutils",
+      "rev": "418468ac9527e799809c900eda37cbff999199b6",
+      "rev_count": 905402,
+      "rev_date": "2025-12-02T09:27:49Z",
+      "scrape_date": "2025-12-04T03:02:19.653295Z",
+      "stabilities": [
+        "unstable"
+      ],
+      "unfree": false,
+      "version": "9.8",
+      "outputs_to_install": [
+        "out"
+      ],
+      "outputs": {
+        "debug": "/nix/store/kfdvla3vclwqqajgy57sx7rgwf0886iq-coreutils-9.8-debug",
+        "info": "/nix/store/6438x1108fs9w0y3i8kixp5hyy0mprxn-coreutils-9.8-info",
+        "out": "/nix/store/d9jxdwalyr5qzmyz9m5avmzn7w40h7iy-coreutils-9.8"
+      },
+      "system": "aarch64-linux",
+      "group": "toplevel",
+      "priority": 5
+    },
+    {
+      "attr_path": "coreutils",
+      "broken": false,
+      "derivation": "/nix/store/4njbc8gj7g3mkv49yyjqa3v8q72al292-coreutils-9.8.drv",
+      "description": "GNU Core Utilities",
+      "install_id": "coreutils",
+      "license": "GPL-3.0-or-later",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=418468ac9527e799809c900eda37cbff999199b6",
+      "name": "coreutils-9.8",
+      "pname": "coreutils",
+      "rev": "418468ac9527e799809c900eda37cbff999199b6",
+      "rev_count": 905402,
+      "rev_date": "2025-12-02T09:27:49Z",
+      "scrape_date": "2025-12-04T03:11:43.484497Z",
+      "stabilities": [
+        "unstable"
+      ],
+      "unfree": false,
+      "version": "9.8",
+      "outputs_to_install": [
+        "out"
+      ],
+      "outputs": {
+        "info": "/nix/store/10x9gm9rxiabrsypkbni68hzxmxa0p3x-coreutils-9.8-info",
+        "out": "/nix/store/f8q9yh6ry4pz5z1hf8sw0ah3gznqs8sr-coreutils-9.8"
+      },
+      "system": "x86_64-darwin",
+      "group": "toplevel",
+      "priority": 5
+    },
+    {
+      "attr_path": "coreutils",
+      "broken": false,
+      "derivation": "/nix/store/m507z3g5zq4lv5x99rqb6dfdh5m0xixx-coreutils-9.8.drv",
+      "description": "GNU Core Utilities",
+      "install_id": "coreutils",
+      "license": "GPL-3.0-or-later",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=418468ac9527e799809c900eda37cbff999199b6",
+      "name": "coreutils-9.8",
+      "pname": "coreutils",
+      "rev": "418468ac9527e799809c900eda37cbff999199b6",
+      "rev_count": 905402,
+      "rev_date": "2025-12-02T09:27:49Z",
+      "scrape_date": "2025-12-04T03:20:07.379033Z",
+      "stabilities": [
+        "unstable"
+      ],
+      "unfree": false,
+      "version": "9.8",
+      "outputs_to_install": [
+        "out"
+      ],
+      "outputs": {
+        "debug": "/nix/store/94960sngigrxkp9c4xf1w5kkp99fn41j-coreutils-9.8-debug",
+        "info": "/nix/store/y1m7chay8is0jhibk9n4a39sacbnsf8q-coreutils-9.8-info",
+        "out": "/nix/store/imad8dvhp77h0pjbckp6wvmnyhp8dpgg-coreutils-9.8"
+      },
+      "system": "x86_64-linux",
+      "group": "toplevel",
+      "priority": 5
+    },
+    {
+      "attr_path": "dbmate",
+      "broken": false,
+      "derivation": "/nix/store/r5dps6y0s5ki8va0r4a1fim6sghq9h4m-dbmate-2.28.0.drv",
+      "description": "Database migration tool",
+      "install_id": "dbmate",
+      "license": "MIT",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=418468ac9527e799809c900eda37cbff999199b6",
+      "name": "dbmate-2.28.0",
+      "pname": "dbmate",
+      "rev": "418468ac9527e799809c900eda37cbff999199b6",
+      "rev_count": 905402,
+      "rev_date": "2025-12-02T09:27:49Z",
+      "scrape_date": "2025-12-04T02:53:41.000456Z",
+      "stabilities": [
+        "unstable"
+      ],
+      "unfree": false,
+      "version": "2.28.0",
+      "outputs_to_install": [
+        "out"
+      ],
+      "outputs": {
+        "out": "/nix/store/vxna5scjwg8bcy646cky21v7lr7ibccn-dbmate-2.28.0"
+      },
+      "system": "aarch64-darwin",
+      "group": "toplevel",
+      "priority": 5
+    },
+    {
+      "attr_path": "dbmate",
+      "broken": false,
+      "derivation": "/nix/store/cx6qyn27x12snxj13qsx3ydpbqpfhb9b-dbmate-2.28.0.drv",
+      "description": "Database migration tool",
+      "install_id": "dbmate",
+      "license": "MIT",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=418468ac9527e799809c900eda37cbff999199b6",
+      "name": "dbmate-2.28.0",
+      "pname": "dbmate",
+      "rev": "418468ac9527e799809c900eda37cbff999199b6",
+      "rev_count": 905402,
+      "rev_date": "2025-12-02T09:27:49Z",
+      "scrape_date": "2025-12-04T03:02:19.796239Z",
+      "stabilities": [
+        "unstable"
+      ],
+      "unfree": false,
+      "version": "2.28.0",
+      "outputs_to_install": [
+        "out"
+      ],
+      "outputs": {
+        "out": "/nix/store/m0v300hizasx3i7hx10iwmlhswwx5z5a-dbmate-2.28.0"
+      },
+      "system": "aarch64-linux",
+      "group": "toplevel",
+      "priority": 5
+    },
+    {
+      "attr_path": "dbmate",
+      "broken": false,
+      "derivation": "/nix/store/gmgf5vi4la36lqxz2n8ni1m2rkyza36q-dbmate-2.28.0.drv",
+      "description": "Database migration tool",
+      "install_id": "dbmate",
+      "license": "MIT",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=418468ac9527e799809c900eda37cbff999199b6",
+      "name": "dbmate-2.28.0",
+      "pname": "dbmate",
+      "rev": "418468ac9527e799809c900eda37cbff999199b6",
+      "rev_count": 905402,
+      "rev_date": "2025-12-02T09:27:49Z",
+      "scrape_date": "2025-12-04T03:11:43.582672Z",
+      "stabilities": [
+        "unstable"
+      ],
+      "unfree": false,
+      "version": "2.28.0",
+      "outputs_to_install": [
+        "out"
+      ],
+      "outputs": {
+        "out": "/nix/store/865wr3965d0wr7ka7qa8igd46l3h6hj3-dbmate-2.28.0"
+      },
+      "system": "x86_64-darwin",
+      "group": "toplevel",
+      "priority": 5
+    },
+    {
+      "attr_path": "dbmate",
+      "broken": false,
+      "derivation": "/nix/store/16h77y7h8qpa52rwcc61kn461b8hcs7a-dbmate-2.28.0.drv",
+      "description": "Database migration tool",
+      "install_id": "dbmate",
+      "license": "MIT",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=418468ac9527e799809c900eda37cbff999199b6",
+      "name": "dbmate-2.28.0",
+      "pname": "dbmate",
+      "rev": "418468ac9527e799809c900eda37cbff999199b6",
+      "rev_count": 905402,
+      "rev_date": "2025-12-02T09:27:49Z",
+      "scrape_date": "2025-12-04T03:20:07.548892Z",
+      "stabilities": [
+        "unstable"
+      ],
+      "unfree": false,
+      "version": "2.28.0",
+      "outputs_to_install": [
+        "out"
+      ],
+      "outputs": {
+        "out": "/nix/store/sg9r0ha1hg6lnxphq192mx9gh94vhis7-dbmate-2.28.0"
+      },
+      "system": "x86_64-linux",
+      "group": "toplevel",
+      "priority": 5
+    },
+    {
+      "attr_path": "ncps",
+      "broken": false,
+      "derivation": "/nix/store/rzbybmfr7prrfik8hfgx6b6sfbf1lk3k-ncps-0.4.0.drv",
+      "description": "Nix binary cache proxy service",
+      "install_id": "ncps",
+      "license": "MIT",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=418468ac9527e799809c900eda37cbff999199b6",
+      "name": "ncps-0.4.0",
+      "pname": "ncps",
+      "rev": "418468ac9527e799809c900eda37cbff999199b6",
+      "rev_count": 905402,
+      "rev_date": "2025-12-02T09:27:49Z",
+      "scrape_date": "2025-12-04T02:54:01.923126Z",
+      "stabilities": [
+        "unstable"
+      ],
+      "unfree": false,
+      "version": "0.4.0",
+      "outputs_to_install": [
+        "out"
+      ],
+      "outputs": {
+        "out": "/nix/store/95isrs3f7m5jvqr31756a9qh2mqinifw-ncps-0.4.0"
+      },
+      "system": "aarch64-darwin",
+      "group": "toplevel",
+      "priority": 5
+    },
+    {
+      "attr_path": "ncps",
+      "broken": false,
+      "derivation": "/nix/store/nlrrfh22j60nh6lxk7py060yjwpxjlj7-ncps-0.4.0.drv",
+      "description": "Nix binary cache proxy service",
+      "install_id": "ncps",
+      "license": "MIT",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=418468ac9527e799809c900eda37cbff999199b6",
+      "name": "ncps-0.4.0",
+      "pname": "ncps",
+      "rev": "418468ac9527e799809c900eda37cbff999199b6",
+      "rev_count": 905402,
+      "rev_date": "2025-12-02T09:27:49Z",
+      "scrape_date": "2025-12-04T03:02:54.723108Z",
+      "stabilities": [
+        "unstable"
+      ],
+      "unfree": false,
+      "version": "0.4.0",
+      "outputs_to_install": [
+        "out"
+      ],
+      "outputs": {
+        "out": "/nix/store/7xf76fgdxn9rpq59m0b47nj6fbl9pxr0-ncps-0.4.0"
+      },
+      "system": "aarch64-linux",
+      "group": "toplevel",
+      "priority": 5
+    },
+    {
+      "attr_path": "ncps",
+      "broken": false,
+      "derivation": "/nix/store/w9k0hypyiw5s9xqwfpzhz43ghc3q13j6-ncps-0.4.0.drv",
+      "description": "Nix binary cache proxy service",
+      "install_id": "ncps",
+      "license": "MIT",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=418468ac9527e799809c900eda37cbff999199b6",
+      "name": "ncps-0.4.0",
+      "pname": "ncps",
+      "rev": "418468ac9527e799809c900eda37cbff999199b6",
+      "rev_count": 905402,
+      "rev_date": "2025-12-02T09:27:49Z",
+      "scrape_date": "2025-12-04T03:12:03.896225Z",
+      "stabilities": [
+        "unstable"
+      ],
+      "unfree": false,
+      "version": "0.4.0",
+      "outputs_to_install": [
+        "out"
+      ],
+      "outputs": {
+        "out": "/nix/store/8vn33mb2klp56f75p1wdch02x4fgpnji-ncps-0.4.0"
+      },
+      "system": "x86_64-darwin",
+      "group": "toplevel",
+      "priority": 5
+    },
+    {
+      "attr_path": "ncps",
+      "broken": false,
+      "derivation": "/nix/store/9nl9yfg6xbba4z24nw6jfzi6bh7bn5yx-ncps-0.4.0.drv",
+      "description": "Nix binary cache proxy service",
+      "install_id": "ncps",
+      "license": "MIT",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=418468ac9527e799809c900eda37cbff999199b6",
+      "name": "ncps-0.4.0",
+      "pname": "ncps",
+      "rev": "418468ac9527e799809c900eda37cbff999199b6",
+      "rev_count": 905402,
+      "rev_date": "2025-12-02T09:27:49Z",
+      "scrape_date": "2025-12-04T03:20:43.879554Z",
+      "stabilities": [
+        "unstable"
+      ],
+      "unfree": false,
+      "version": "0.4.0",
+      "outputs_to_install": [
+        "out"
+      ],
+      "outputs": {
+        "out": "/nix/store/5f881qrhnw3lqf15djvfs2zw53gxsjj5-ncps-0.4.0"
+      },
+      "system": "x86_64-linux",
+      "group": "toplevel",
+      "priority": 5
+    }
+  ]
+}
